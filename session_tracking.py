@@ -1,55 +1,70 @@
-import unittest
-from session_tracking import get_db_connection, create_sessions_table, insert_session_data, retrieve_session_data, handle_new_session
+import sqlite3
 from datetime import datetime
 
-class TestSessionTracking(unittest.TestCase):
-    
-    def setUp(self):
-        """Shared setup method to initialize the database and table."""
-        self.conn = get_db_connection()
-        self.cursor = self.conn.cursor()
-        create_sessions_table(self.cursor)
+# Database connection function
+def get_db_connection():
+    conn = sqlite3.connect(':memory:')  # In-memory database for simplicity
+    return conn
 
-    def tearDown(self):
-        """Clean up method to delete data after each test."""
-        self.cursor.execute('DELETE FROM sessions')
-        self.conn.commit()
+# Function to create sessions table
+def create_sessions_table(cursor):
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS sessions (
+            session_id INTEGER PRIMARY KEY,
+            parameters TEXT,
+            conversation_log TEXT,
+            timestamp TEXT
+        )
+    ''')
 
-    def test_create_sessions_table(self):
-        """Test if the sessions table is created."""
-        self.assertTrue(self.cursor.execute('SELECT * FROM sessions').fetchone() is None)
+# Function to insert session data
+def insert_session_data(cursor, session_id, parameters, conversation_log, timestamp):
+    cursor.execute('''
+        INSERT INTO sessions (session_id, parameters, conversation_log, timestamp)
+        VALUES (?, ?, ?, ?)
+    '''', (session_id, parameters, conversation_log, timestamp))
 
-    def test_insert_session_data(self):
-        """Test if session data is inserted correctly."""
-        insert_session_data(self.cursor, 1, 'reset_context=False, check_flags=False', 'Started the conversation with some context.', '2023-03-01 12:00:00')
-        self.assertTrue(self.cursor.execute('SELECT * FROM sessions').fetchone() is not None)
+# Function to retrieve session data
+def retrieve_session_data(cursor, session_id):
+    cursor.execute('SELECT parameters, conversation_log, timestamp FROM sessions WHERE session_id = ?', (session_id,))
+    return cursor.fetchone()
 
-    def test_retrieve_session_data(self):
-        """Test if session data is retrieved correctly."""
-        insert_session_data(self.cursor, 1, 'reset_context=False, check_flags=False', 'Started the conversation with some context.', '2023-03-01 12:00:00')
-        session_data = retrieve_session_data(self.cursor, 1)
-        self.assertEqual(session_data[0], 'reset_context=False, check_flags=False')
-        self.assertEqual(session_data[1], 'Started the conversation with some context.')
+# Function to handle new session
+def handle_new_session(cursor, session_id, parameters, conversation_log):
+    existing_session = retrieve_session_data(cursor, session_id)
+    if existing_session:
+        cursor.execute('''
+            UPDATE sessions
+            SET parameters = ?, conversation_log = ?, timestamp = ?
+            WHERE session_id = ?
+        ''', (parameters, conversation_log, datetime.now().strftime('%Y-%m-%d %H:%M:%S'), session_id))
+    else:
+        insert_session_data(cursor, session_id, parameters, conversation_log, datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
 
-    def test_retrieve_non_existent_session(self):
-        """Test retrieving a session that doesn't exist."""
-        session_data = retrieve_session_data(self.cursor, 999)  # assuming 999 is an invalid ID
-        self.assertIsNone(session_data)
+# Instructions on how to use and test the session tracking logic
+def instructions():
+    print("Instructions on how to use and test the session tracking logic:")
+    print("1. Initialize the database connection and cursor.")
+    print("2. Create the sessions table using create_sessions_table(cursor).")
+    print("3. Insert a new session using handle_new_session(cursor, session_id, parameters, conversation_log).")
+    print("4. Commit the changes to the database using conn.commit().")
+    print("5. Retrieve session data using retrieve_session_data(cursor, session_id).")
+    print("6. Print or process the retrieved session data as needed.")
+    print("7. To run tests, use a testing framework like unittest to create test cases for each function.")
 
-    def test_timestamp_format(self):
-        """Test if the timestamp is correctly formatted."""
-        timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        insert_session_data(self.cursor, 1, 'reset_context=False, check_flags=False', 'Started the conversation with some context.', timestamp)
-        session_data = retrieve_session_data(self.cursor, 1)
-        self.assertRegex(session_data[2], r'\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}')
-
-    def test_update_session_data(self):
-        """Test if session data is updated correctly."""
-        insert_session_data(self.cursor, 1, 'reset_context=False, check_flags=False', 'Started the conversation with some context.', '2023-03-01 12:00:00')
-        new_conversation_log = 'Added new conversation log.'
-        handle_new_session(self.cursor, 1, 'reset_context=False, check_flags=False', new_conversation_log)
-        session_data = retrieve_session_data(self.cursor, 1)
-        self.assertEqual(session_data[1], new_conversation_log)
-
+# Example usage
 if __name__ == '__main__':
-    unittest.main()
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    create_sessions_table(cursor)
+
+    # Insert a new session
+    handle_new_session(cursor, 1, 'reset_context=False, check_flags=False', 'Started the conversation with some context.')
+    conn.commit()
+
+    # Retrieve and print session data
+    session_data = retrieve_session_data(cursor, 1)
+    print(session_data)
+
+    # Print instructions
+    instructions()
