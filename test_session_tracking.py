@@ -1,5 +1,5 @@
 import unittest
-from session_tracking import get_db_connection, create_sessions_table, insert_session_data, retrieve_session_data
+from session_tracking import get_db_connection, create_sessions_table, insert_session_data, retrieve_session_data, handle_new_session
 
 class TestSessionTracking(unittest.TestCase):
     
@@ -34,6 +34,31 @@ class TestSessionTracking(unittest.TestCase):
         """Test retrieving a session that doesn't exist."""
         session_data = retrieve_session_data(self.cursor, 999)  # assuming 999 is an invalid ID
         self.assertIsNone(session_data)
+
+    def test_handle_new_session_insert(self):
+        """Test handling a new session insert."""
+        handle_new_session(self.cursor, 1, 'reset_context=False, check_flags=False', 'Started the conversation with some context.')
+        self.conn.commit()
+        session_data = retrieve_session_data(self.cursor, 1)
+        self.assertIsNotNone(session_data)
+        self.assertEqual(session_data[0], 'reset_context=False, check_flags=False')
+        self.assertEqual(session_data[1], 'Started the conversation with some context.')
+
+    def test_handle_new_session_update(self):
+        """Test handling a new session update."""
+        handle_new_session(self.cursor, 1, 'reset_context=False, check_flags=False', 'Started the conversation with some context.')
+        self.conn.commit()
+        handle_new_session(self.cursor, 1, 'reset_context=True, check_flags=True', 'Updated the conversation with new context.')
+        self.conn.commit()
+        session_data = retrieve_session_data(self.cursor, 1)
+        self.assertIsNotNone(session_data)
+        self.assertEqual(session_data[0], 'reset_context=True, check_flags=True')
+        self.assertEqual(session_data[1], 'Updated the conversation with new context.')
+
+    def test_instructions(self):
+        """Test if instructions are printed correctly."""
+        from session_tracking import instructions
+        instructions()
 
 if __name__ == '__main__':
     unittest.main()
