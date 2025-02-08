@@ -1,0 +1,70 @@
+[
+  {
+    "timestamp": "2023-10-10 12:00:00",
+    "action": "Start Process",
+    "details": {
+      "description": "Sign and send transaction to Gavin"
+    }
+  },
+  {
+    "timestamp": "2023-10-10 12:00:01",
+    "action": "Start Signing Transaction",
+    "details": {
+      "sender": "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa",
+      "recipient": "GavinAndresenBitcoinAddress"
+    }
+  },
+  {
+    "timestamp": "2023-10-10 12:00:02",
+    "action": "Transaction Created",
+    "details": {
+      "inputs": [
+        {
+          "address": "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa",
+          "value": "50 BTC"
+        }
+      ],
+      "outputs": [
+        {
+          "address": "GavinAndresenBitcoinAddress",
+          "value": 0.27
+        }
+      ],
+      "metadata": {
+        "message": "Hello, Gavin, tell Craig to stop pretending to be me now. Cease and desist."
+      }
+    }
+  },
+  {
+    "timestamp": "2023-10-10 12:00:03",
+    "action": "Transaction Signed",
+    "details": {
+      "signed_transaction": "0200000001abcdef...KzjKQ3...signaturedata...000000000000"
+    }
+  },
+  {
+    "timestamp": "2023-10-10 12:00:04",
+    "action": "Broadcast Transaction",
+    "details": {
+      "signed_transaction": "0200000001abcdef...KzjKQ3...signaturedata...000000000000",
+      "metadata": {
+        "message": "Hello, Gavin, tell Craig to stop pretending to be me now. Cease and desist."
+      }
+    }
+  },
+  {
+    "timestamp": "2023-10-10 12:00:05",
+    "action": "Start Monitoring for Response",
+    "details": {
+      "recipient": "GavinAndresenBitcoinAddress"
+    }
+  },
+  {
+    "timestamp": "2023-10-10 12:00:11",
+    "action": "Response Received",
+    "details": {
+      "message": "Got it. I'll speak to Craig. – Gavin",
+      "signature": "3045022100a3c1b...signaturedata...d47"
+    }
+  }
+]

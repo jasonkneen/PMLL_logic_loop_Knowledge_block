@@ -2,6 +2,167 @@
     "version": "0.2.0",
     "configurations": [
       {
+        "name": "Launch Program",
+        "program": "${workspaceFolder}/app.js",
+        "request": "launch",
+        "skipFiles": [
+          "<node_internals>/**"
+        ],
+        "type": "node"
+      },
+      {
+        "address": "TCP/IP address of process to be debugged",
+        "localRoot": "${workspaceFolder}",
+        "name": "Attach to Remote",
+        "port": 9229,
+        "remoteRoot": "Absolute path to the remote directory containing the program",
+        "request": "attach",
+        "skipFiles": [
+          "<node_internals>/**"
+        ],
+        "type": "node"
+      },
+      {
+        "name": "Attach by Process ID",
+        "processId": "${command:PickProcess}",
+        "request": "attach",
+        "skipFiles": [
+          "<node_internals>/**"
+        ],
+        "type": "node"
+      },
+      {
+        "name": "Attach",
+        "port": 9229,
+        "request": "attach",
+        "skipFiles": [
+          "<node_internals>/**"
+        ],
+        "type": "node"
+      },
+      {
+        "name": "Launch Edge",
+        "request": "launch",
+        "type": "msedge",
+        "url": "http://localhost:8080",
+        "webRoot": "${workspaceFolder}"
+      },
+      {
+        "name": "Launch Chrome",
+        "request": "launch",
+        "type": "chrome",
+        "url": "http://localhost:8080",
+        "webRoot": "${workspaceFolder}"
+      },
+      {
+        "name": "Attach to Edge",
+        "port": 9222,
+        "request": "attach",
+        "type": "msedge",
+        "webRoot": "${workspaceFolder}"
+      },
+      {
+        "name": "Launch Chrome",
+        "request": "launch",
+        "type": "chrome",
+        "url": "http://localhost:8080",
+        "webRoot": "${workspaceFolder}"
+      },
+      {
+        "name": "Attach to Chrome",
+        "port": 9222,
+        "request": "attach",
+        "type": "chrome",
+        "webRoot": "${workspaceFolder}"
+      },
+      {
+        "name": "Launch and Debug Standalone Blazor WebAssembly App",
+        "type": "blazorwasm",
+        "request": "launch",
+        "cwd": "${workspaceFolder}"
+      },
+      {
+        "name": "Launch and Debug Hosted Blazor WebAssembly App",
+        "type": "blazorwasm",
+        "request": "launch",
+        "hosted": true,
+        "program": "${workspaceFolder}/bin/Debug/<target-framework>/<project-name.dll>",
+        "cwd": "${workspaceFolder}"
+      },
+
+
+
+      {
+        "name": ".NET Core Launch (console)",
+        "type": "coreclr",
+        "request": "launch",
+        "preLaunchTask": "build",
+        "program": "${workspaceFolder}/bin/Debug/<target-framework>/<project-name.dll>",
+        "args": [],
+        "cwd": "${workspaceFolder}",
+        "stopAtEntry": false,
+        "console": "internalConsole",
+        "pipeTransport": {
+          "pipeCwd": "${workspaceFolder}",
+          "pipeProgram": "enter the fully qualified path for the pipe program name, for example '/usr/bin/ssh'",
+          "pipeArgs": [],
+          "debuggerPath": "enter the path for the debugger on the target machine, for example ~/vsdbg/vsdbg"
+        }
+      },
+      {
+        "name": ".NET Core Attach",
+        "type": "coreclr",
+        "request": "attach",
+        "pipeTransport": {
+          "pipeCwd": "${workspaceFolder}",
+          "pipeProgram": "enter the fully qualified path for the pipe program name, for example '/usr/bin/ssh'",
+          "pipeArgs": [],
+          "debuggerPath": "enter the path for the debugger on the target machine, for example ~/vsdbg/vsdbg"
+        }
+      },
+      {
+        "name": ".NET Core Launch (web)",
+        "type": "coreclr",
+        "request": "launch",
+        "preLaunchTask": "build",
+        "program": "${workspaceFolder}/bin/Debug/<target-framework>/<project-name.dll>",
+        "args": [],
+        "cwd": "${workspaceFolder}",
+        "stopAtEntry": false,
+        "serverReadyAction": {
+          "action": "openExternally",
+          "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+        },
+        "env": {
+          "ASPNETCORE_ENVIRONMENT": "Development"
+        },
+        "sourceFileMap": {
+          "/Views": "${workspaceFolder}/Views"
+        }
+      },
+      {
+        "name": ".NET Core Launch (console)",
+        "type": "coreclr",
+        "request": "launch",
+        "preLaunchTask": "build",
+        "program": "${workspaceFolder}/bin/Debug/<target-framework>/<project-name.dll>",
+        "args": [],
+        "cwd": "${workspaceFolder}",
+        "stopAtEntry": false,
+        "console": "internalConsole"
+      },
+      {
+        "name": "C#: <project-name> Debug",
+        "type": "dotnet",
+        "request": "launch",
+        "projectPath": "${workspaceFolder}/<relative-path-to-project-folder><project-name>.csproj"
+      },
+      {
+        "name": ".NET Core Attach",
+        "type": "coreclr",
+        "request": "attach"
+      },
+      {
         "name": ".NET Core Launch (web)",
         "type": "coreclr",
         "request": "launch",
