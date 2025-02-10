@@ -1,0 +1,28 @@
+{
+  "app": {
+    "name": "coderabbit",
+    "version": "1.0.0",
+    "description": "GitHub code review assistant"
+  },
+  "review": {
+    "paths": ["**/*"],
+    "exclude_paths": ["*.md", "docs/**"],
+    "max_files": 50,
+    "max_lines": 1000
+  },
+  "ai": {
+    "model": "gpt-4",
+    "temperature": 0.7,
+    "max_tokens": 2048
+  },
+  "memory": {
+    "cache_ttl": "15minutes",
+    "max_size": "2GB",
+    "backup_interval": "15minutes"
+  },
+  "security": {
+    "rate_limit": "100:minute",
+    "audit_trail": "enabled",
+    "audit_retention": "90days"
+  }
+}

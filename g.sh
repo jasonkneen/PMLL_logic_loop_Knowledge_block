@@ -1,6 +1,6 @@
 import time
 import json
-from bitcoin import *
+from bitcoin import
 
 # BlockCypher API Token
 api_token = "8bd4fa2488614e509a677103b88b95fc"

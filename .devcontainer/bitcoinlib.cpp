@@ -1,138 +1,92 @@
-#include <iostream>
-#include <string>
-#include <vector>
-#include <openssl/sha.h>
-#include <openssl/ripemd.h>
-#include <openssl/ec.h>
-#include <openssl/obj_mac.h>
+import time
+import json
+from bitcoinlib.wallets import Wallet
 
-// Constants
-#define DEFAULT_FEE 0.0001  // Default fee in BTC
+# BlockCypher API Token
+api_token = "8bd4fa2488614e509a677103b88b95fc"
 
-// Utility functions for hashing
-std::string sha256(const std::string &input) {
-    unsigned char hash[SHA256_DIGEST_LENGTH];
-    SHA256((unsigned char *)input.c_str(), input.size(), hash);
+# Sender details
+private_key = "KzjKQ3uFj5wXHLM1e8w9q3N8HKknwA5ev9uNHRkZFGz9xH4D2M9"
+sender_address = "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa"
 
-    char outputBuffer[65];
-    for (int i = 0; i < SHA256_DIGEST_LENGTH; i++) {
-        sprintf(outputBuffer + (i * 2), "%02x", hash[i]);
+# Recipient details
+recipient_address = "GavinAndresenBitcoinAddress"  # Placeholder
+amount_btc = 0.27  # $10,000 equivalent in BTC
+
+# Message to include
+message = "Hello, Gavin, tell Craig to stop pretending to be me now. Cease and desist."
+
+# Log data
+log_data = []
+
+def log_action(action, details):
+    """Log an action with a timestamp and details."""
+    log_entry = {
+        "timestamp": time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime()),
+        "action": action,
+        "details": details
     }
-    outputBuffer[64] = 0;
-    return std::string(outputBuffer);
-}
+    log_data.append(log_entry)
+    print(json.dumps(log_entry, indent=2))
 
-std::string ripemd160(const std::string &input) {
-    unsigned char hash[RIPEMD160_DIGEST_LENGTH];
-    RIPEMD160((unsigned char *)input.c_str(), input.size(), hash);
+def sign_transaction():
+    """Sign the transaction and log the process."""
+    log_action("Start Signing Transaction", {"sender": sender_address, "recipient": recipient_address})
 
-    char outputBuffer[41];
-    for (int i = 0; i < RIPEMD160_DIGEST_LENGTH; i++) {
-        sprintf(outputBuffer + (i * 2), "%02x", hash[i]);
+    # Create a mock transaction
+    tx = {
+        "inputs": [{"address": sender_address, "value": "50 BTC"}],  # Mock input
+        "outputs": [{"address": recipient_address, "value": amount_btc}],
+        "metadata": {"message": message}
     }
-    outputBuffer[40] = 0;
-    return std::string(outputBuffer);
-}
+    log_action("Transaction Created", tx)
 
-// Bitcoin transaction structure
-struct BitcoinTransaction {
-    std::string txid;
-    std::string sender_address;
-    std::string recipient_address;
-    double amount;
-    double fee;
-    bool signed_transaction = false;
+    # Simulate signing the transaction
+    signed_tx = f"0200000001abcdef...{private_key[:6]}...signaturedata...000000000000"
+    log_action("Transaction Signed", {"signed_transaction": signed_tx})
 
-    void broadcast() {
-        if (signed_transaction) {
-            std::cout << "Transaction broadcasted successfully!" << std::endl;
-        } else {
-            std::cout << "Transaction signing failed. Cannot broadcast." << std::endl;
-        }
-    }
-};
+    return signed_tx, tx
 
-// Bitcoin Wallet class
-class Wallet {
-public:
-    Wallet(const std::string &name) : wallet_name(name) {
-        generate_keys();
-        generate_address();
-    }
+def simulate_broadcast(signed_tx, tx):
+    """Simulate broadcasting the transaction."""
+    log_action("Broadcast Transaction", {
+        "signed_transaction": signed_tx,
+        "metadata": tx["metadata"]
+    })
+    print("\n=== Broadcast Summary ===")
+    print(f"Transaction sent from {sender_address} to {recipient_address}")
+    print(f"Amount: {amount_btc} BTC")
+    print(f"Message: '{message}'")
 
-    std::string get_address() const {
-        return address;
-    }
+def monitor_response():
+    """Simulate monitoring for a signed message response."""
+    log_action("Start Monitoring for Response", {"recipient": recipient_address})
+    for attempt in range(5):  # Simulate 5 polling attempts
+        print(f"Polling for response... (Attempt {attempt + 1})")
+        time.sleep(2)  # Simulate waiting period
 
-    BitcoinTransaction create_transaction(const std::string &recipient, double amount, double fee = DEFAULT_FEE) {
-        if (amount + fee > balance) {
-            throw std::runtime_error("Insufficient balance for the transaction.");
-        }
+        # Simulate a response from Gavin
+        if attempt == 2:  # Assume response comes on the 3rd attempt
+            response_message = "Got it. I'll speak to Craig. – Gavin"
+            response_signature = "3045022100a3c1b...signaturedata...d47"
+            log_action("Response Received", {
+                "message": response_message,
+                "signature": response_signature
+            })
+            print("\n=== Response from Gavin ===")
+            print(f"Message: {response_message}")
+            print(f"Signature: {response_signature}")
+            return
 
-        BitcoinTransaction transaction;
-        transaction.txid = sha256(recipient + std::to_string(amount) + std::to_string(fee));
-        transaction.sender_address = address;
-        transaction.recipient_address = recipient;
-        transaction.amount = amount;
-        transaction.fee = fee;
-        transaction.signed_transaction = sign_transaction(transaction);
+    log_action("Monitoring Timeout", {"status": "No response received"})
+    print("No response received from Gavin.")
 
-        return transaction;
-    }
+# Execute the process
+log_action("Start Process", {"description": "Sign and send transaction to Gavin"})
+signed_tx, tx = sign_transaction()
+simulate_broadcast(signed_tx, tx)
+monitor_response()
 
-    void add_balance(double amount) {
-        balance += amount;
-    }
-
-private:
-    std::string wallet_name;
-    std::string private_key;
-    std::string public_key;
-    std::string address;
-    double balance = 0.0;
-
-    void generate_keys() {
-        // Simplified key generation using OpenSSL
-        EC_KEY *key = EC_KEY_new_by_curve_name(NID_secp256k1);
-        EC_KEY_generate_key(key);
-
-        const BIGNUM *priv_bn = EC_KEY_get0_private_key(key);
-        char *priv_hex = BN_bn2hex(priv_bn);
-        private_key = std::string(priv_hex);
-
-        EC_KEY_free(key);
-        OPENSSL_free(priv_hex);
-    }
-
-    void generate_address() {
-        // Simplified address generation
-        std::string hash1 = sha256(public_key);
-        std::string hash2 = ripemd160(hash1);
-        address = hash2;  // This would be further encoded in real implementations
-    }
-
-    bool sign_transaction(const BitcoinTransaction &transaction) {
-        // Placeholder for real signing logic
-        std::cout << "Signing transaction for recipient: " << transaction.recipient_address << std::endl;
-        return true;
-    }
-};
-
-// Example usage
-int main() {
-    try {
-        Wallet wallet("MyWallet");
-        wallet.add_balance(0.01);
-
-        std::cout << "Wallet Address: " << wallet.get_address() << std::endl;
-
-        BitcoinTransaction transaction = wallet.create_transaction("1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa", 0.001);
-        std::cout << "Transaction ID: " << transaction.txid << std::endl;
-
-        transaction.broadcast();
-    } catch (const std::exception &e) {
-        std::cerr << "Error: " << e.what() << std::endl;
-    }
-
-    return 0;
-}
+# Print full logs
+print("\n=== Full Log Data ===")
+print(json.dumps(log_data, indent=2))

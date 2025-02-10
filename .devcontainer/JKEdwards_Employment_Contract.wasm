@@ -1,1 +1,170 @@
 This is a placeholder for the compiled JKEdwards_Employment_Contract.wasm binary.
+use cosmwasm_std::{
+    entry_point, to_binary, Binary, Deps, DepsMut, Env, MessageInfo, Response, StdResult,
+};
+use cw2::set_contract_version;
+use cw_storage_plus::Item;
+use serde::{Deserialize, Serialize};
+
+// Version info for migration.
+const CONTRACT_NAME: &str = "crates.io:JKEdwards_Employment_Contract";
+const CONTRACT_VERSION: &str = "1.0.0";
+
+// The main contract structure holding all details.
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
+pub struct EmploymentContract {
+    pub name: String,
+    pub version: f64,
+    pub description: String,
+    pub wallets: Wallets,
+    pub employee_details: EmployeeDetails,
+    pub compensation: Compensation,
+    pub benefits: Benefits,
+    pub responsibilities: Vec<String>,
+    pub termination_clauses: TerminationClauses,
+    pub intellectual_property: IntellectualProperty,
+    pub non_compete: NonCompete,
+    pub governing_law: String,
+}
+
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
+pub struct Wallets {
+    pub bitcoin_wallet: String,
+    pub cosmos_wallet: String,
+}
+
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
+pub struct EmployeeDetails {
+    pub name: String,
+    pub title: String,
+    pub address: String,
+    pub dob: String,
+}
+
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
+pub struct Compensation {
+    pub base_salary: u64,
+    pub ppu_equity: Equity,
+    pub performance_bonus: u64,
+    pub token_compensation: TokenCompensation,
+    pub estimated_total: u64,
+}
+
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
+pub struct Equity {
+    pub percentage: u64,
+    pub vesting: Vesting,
+}
+
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
+pub struct Vesting {
+    pub total_months: u64,
+    pub cliff_months: u64,
+    // For some vesting schemes (like for equity) you may want to mark monthly vesting.
+    pub monthly_vesting: Option<bool>,
+}
+
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
+pub struct TokenCompensation {
+    pub amount: u64,
+    pub currency: String,
+    pub vesting: Vesting,
+}
+
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
+pub struct Benefits {
+    pub healthcare: String,
+    pub pto: PTO,
+    pub retirement_plan: String,
+    pub professional_development: u64,
+    pub equipment_stipend: EquipmentStipend,
+    pub remote_work: String,
+}
+
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
+pub struct PTO {
+    #[serde(rename = "type")]
+    pub type_field: String,
+    pub additional_days: u64,
+    pub sick_days: u64,
+}
+
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
+pub struct EquipmentStipend {
+    pub initial: u64,
+    pub annual: u64,
+}
+
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
+pub struct TerminationClauses {
+    pub voluntary: String,
+    pub involuntary: Involuntary,
+}
+
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
+pub struct Involuntary {
+    pub severance_package: String,
+    pub equity_forfeiture: bool,
+}
+
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
+pub struct IntellectualProperty {
+    pub pre_existing_ip: String,
+    pub developed_ip: String,
+}
+
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
+pub struct NonCompete {
+    pub duration: String,
+    pub restrictions: String,
+}
+
+// Define storage for the contract.
+pub const EMPLOYMENT_CONTRACT: Item<EmploymentContract> = Item::new("employment_contract");
+
+/// The instantiate message. Here you pass in the full employment contract data.
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
+pub struct InstantiateMsg {
+    pub contract: EmploymentContract,
+}
+
+#[entry_point]
+pub fn instantiate(
+    deps: DepsMut,
+    _env: Env,
+    _info: MessageInfo,
+    msg: InstantiateMsg,
+) -> StdResult<Response> {
+    // Set contract version for migration info.
+    set_contract_version(deps.storage, CONTRACT_NAME, CONTRACT_VERSION)?;
+    // Save the provided contract into storage.
+    EMPLOYMENT_CONTRACT.save(deps.storage, &msg.contract)?;
+    Ok(Response::new().add_attribute("method", "instantiate"))
+}
+
+/// Query messages supported by the contract.
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
+#[serde(rename_all = "snake_case")]
+pub enum QueryMsg {
+    GetContract {},
+}
+
+/// Response type for the GetContract query.
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
+pub struct ContractResponse {
+    pub contract: EmploymentContract,
+}
+
+#[entry_point]
+pub fn query(deps: Deps, _env: Env, msg: QueryMsg) -> StdResult<Binary> {
+    match msg {
+        QueryMsg::GetContract {} => to_binary(&query_contract(deps)?),
+    }
+}
+
+pub fn query_contract(deps: Deps) -> StdResult<ContractResponse> {
+    let contract = EMPLOYMENT_CONTRACT.load(deps.storage)?;
+    Ok(ContractResponse { contract })
+}
+
+// Additional execute messages and logic can be added here if needed.
