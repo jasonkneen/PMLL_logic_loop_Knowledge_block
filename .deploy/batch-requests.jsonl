@@ -1,0 +1,2 @@
+{"custom_id": "memory-load-1", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "gpt-5o-flagship", "messages": [{"role": "system", "content": "Load memory silo data"}, {"role": "user", "content": "Initialize memory graph"}], "temperature": 0.2}}
+{"custom_id": "memory-consolidate-1", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "gpt-5o-flagship", "messages": [{"role": "system", "content": "Consolidate short-term to long-term memory"}, {"role": "user", "content": "Process knowledge graph"}], "temperature": 0.1}}

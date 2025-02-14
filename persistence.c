@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
@@ -206,4 +207,26 @@ int main() {
     };
     size_t num_inputs = sizeof(chat_inputs) / sizeof(chat_inputs[0]);
 
-    for (size_t i = 
+    for (size_t i = 0; i < num_inputs; ++i) {
+        process_chatlog(chat_inputs[i]);
+    }
+
+    // Validate session knowledge
+    if (validate_session()) {
+        printf("Session knowledge is valid.\n");
+    } else {
+        printf("Session knowledge is invalid.\n");
+    }
+
+    // Reward session
+    reward_session("example_topic", true);
+
+    // Save session state
+    save_session_state("session_state.dat");
+
+    // Cleanup before exit
+    io_socket_cleanup(&io_socket);
+    free_graph(session_graph);
+
+    return EXIT_SUCCESS;
+}

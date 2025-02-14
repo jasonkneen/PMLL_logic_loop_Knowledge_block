@@ -1,0 +1,717 @@
+[
+    {
+        "name": "ADMIN_API_CLIENT_ID",
+        "value": "d6ScnQskOCntCxt3"
+    },
+    {
+        "name": "ADMIN_API_CLIENT_ID_FINNAI",
+        "value": "FINNAIOTOROSHILLM"
+    },
+    {
+        "name": "ADMIN_API_CLIENT_SECRET",
+        "value": "ZVWqHEnsoN00EfgvXLpQB4FRXUCQPmz0"
+    },
+    {
+        "name": "ADMIN_API_CLIENT_SECRET2",
+        "value": "aLNo6QV5kPB3ATpBxa8FKekRvV5CO1Cq"
+    },
+    {
+        "name": "ADMIN_API_EXPOSED_SUBDOMAIN",
+        "value": "teqnjitubqpyikwzgntv-otoroshi"
+    },
+    {
+        "name": "ADMIN_API_EXPOSED_SUBDOMAIN2",
+        "value": "FINN-otoroshi-LLM"
+    },
+    {
+        "name": "ADMIN_API_GROUP",
+        "value": "22adAWCFr44wilQ9"
+    },
+    {
+        "name": "ADMIN_API_GROUP2",
+        "value": "FcjCChlIeT2yxU7U"
+    },
+    {
+        "name": "ADMIN_API_SERVICE_ID",
+        "value": "gljyWRb7jghc8cdZ"
+    },
+    {
+        "name": "ADMIN_API_SERVICE_ID2",
+        "value": "GCjs2DLlYpRe7m7u"
+    },
+    {
+        "name": "ADMIN_API_TARGET_SUBDOMAIN",
+        "value": "rfbcxiyouajyouwpjzha-otoroshi"
+    },
+    {
+        "name": "ADMIN_API_TARGET_SUBDOMAIN2",
+        "value": "mrkmvkxgjeptpqhlrszr-otoroshi"
+    },
+    {
+        "name": "APP_BACKOFFICE_SUBDOMAIN",
+        "value": "navsaioczpensqgpevhd-otoroshi"
+    },
+    {
+        "name": "APP_BACKOFFICE_SUBDOMAIN2",
+        "value": "shqufdrtajrivvxzqbnb-otoroshi"
+    },
+    {
+        "name": "APP_DOMAIN",
+        "value": "services.clever-cloud.com"
+    },
+    {
+        "name": "APP_ENV",
+        "value": "prod"
+    },
+    {
+        "name": "APP_PRIVATEAPPS_SUBDOMAIN",
+        "value": "zovwpdywatttuzqgarbu-otoroshi"
+    },
+    {
+        "name": "APP_PRIVATEAPPS_SUBDOMAIN2",
+        "value": "bclslrhuvjtojrqriabf-otoroshi"
+    },
+    {
+        "name": "APP_ROOT_SCHEME",
+        "value": "https"
+    },
+    {
+        "name": "APP_STORAGE",
+        "value": "lettuce"
+    },
+    {
+        "name": "CC_JAR_PATH",
+        "value": "./otoroshi.jar"
+    },
+    {
+        "name": "CC_JAVA_VERSION",
+        "value": "21"
+    },
+    {
+        "name": "CC_OTOROSHI_API_URL",
+        "value": "https://teqnjitubqpyikwzgntv-otoroshi.services.clever-cloud.com"
+    },
+    {
+        "name": "CC_OTOROSHI_API_URL2",
+        "value": "https://chatgpt-otoroshi.services.clever-cloud.com"
+    },
+    {
+        "name": "CC_OTOROSHI_APIM_VERSION",
+        "value": "1738687356"
+    },
+    {
+        "name": "CC_OTOROSHI_INITIAL_ADMIN_LOGIN",
+        "value": "iXARR@otoroshi.io"
+    },
+    {
+        "name": "CC_OTOROSHI_INITIAL_ADMIN_LOGIN2",
+        "value": "T4u0M@otoroshi.io"
+    },
+    {
+        "name": "CC_OTOROSHI_INITIAL_ADMIN_LOGIN3",
+        "value": "ChatGPT@otoroshi.io"
+    },
+    {
+        "name": "CC_OTOROSHI_INITIAL_ADMIN_PASSWORD",
+        "value": "g1cMk3QFe7XcyxVREhLRhpQPVG4ayejF"
+    },
+    {
+        "name": "CC_OTOROSHI_SECRET",
+        "value": "https://ZVWqHEnsoN00EfgvXLpQB4FRXUCQPmz0"
+    },
+    {
+        "name": "CC_OTOROSHI_SSO_URL",
+        "value": "https://zovwpdywatttuzqgarbu-otoroshi.services.clever-cloud.com"
+    },
+    {
+        "name": "CC_OTOROSHI_VERSION",
+        "value": "v16.23.2"
+    },
+    {
+        "name": "CC_PRE_BUILD_HOOK",
+        "value": "./provisioning.sh"
+    },
+    {
+        "name": "CC_RUN_COMMAND",
+        "value": "./start.sh"
+    },
+    {
+        "name": "OTOROSHI_INSTANCE_NAME",
+        "value": "ChatGPT(Finn Otoroshi LLM AI by Cloud APIM, interchain, OpenAI and Dr. J.K. Edwards)"
+    },
+    {
+        "name": "OTOROSHI_ROUTE_BASE_DOMAIN",
+        "value": "app-2debb2b7-966c-4140-955d-6e3fb94ebf82.cleverapps.io"
+    },
+    {
+        "name": "OTOROSHI_SECRET",
+        "value": "aDh8OMgukQGYe3tCWW6tHmhjQ/qjydmrWEVfZvpSsN0="
+    },
+    {
+        "name": "PORT",
+        "value": "8080"
+    },
+    {
+        "name": "SESSION_DOMAIN",
+        "value": "navsaioczpensqgpevhd-otoroshi.services.clever-cloud.com"
+    },
+    {
+        "name": "SESSION_SECURE_ONLY",
+        "value": "true"
+    },
+    {
+        "name": "ADMIN_AI_AGENT_ROLE",
+        "value": "Finn Otoroshi LLM AI - API and System Orchestration"
+    },
+    {
+        "name": "REDIS_MEMORY_MANAGEMENT",
+        "value": "Session persistence enforced; eviction policy: noeviction"
+    },
+    {
+        "name": "OTOROSHI_SECURITY_ENFORCEMENT",
+        "value": "LLM queries require dual-auth validation from IXARR or OpenAI LLC"
+    },
+    {
+        "name": "AI_ADMIN_RATE_LIMIT",
+        "value": "100:minute"
+    },
+    {
+        "name": "AI_ADMIN_ALLOWED_OPERATIONS",
+        "value": "read,route,monitor,analyze"
+    },
+    {
+        "name": "AI_ADMIN_RESTRICTED_OPERATIONS",
+        "value": "delete,modify_auth,change_security_settings"
+    },
+    {
+        "name": "AI_ADMIN_AUDIT_TRAIL",
+        "value": "enabled"
+    },
+    {
+        "name": "AI_ADMIN_AUDIT_RETENTION",
+        "value": "90days"
+    },
+    {
+        "name": "AI_HEALTH_CHECK_INTERVAL",
+        "value": "30seconds"
+    },
+    {
+        "name": "AI_FALLBACK_MODE",
+        "value": "readonly"
+    },
+    {
+        "name": "METRICS_COLLECTION_ENDPOINT",
+        "value": "https://metrics.otoroshi.cloud/ai-admin-metrics"
+    },
+    {
+        "name": "REDIS_MAX_MEMORY",
+        "value": "2GB"
+    },
+    {
+        "name": "REDIS_BACKUP_INTERVAL",
+        "value": "15minutes"
+    }
+]
+{
+  "name": "integrate_models",
+  "description": "Generates a function that uses API key to call OpenAI models and integrates them into the FINN otoroshi GPT 5o LLM.",
+  "strict": true,
+  "parameters": {
+    "type": "object",
+    "required": [
+      "api_key",
+      "model_types",
+      "parameters"
+    ],
+    "properties": {
+      "api_key": {
+        "type": "string",
+        "description": "API key for authenticating to OpenAI services"
+      },
+      "model_types": {
+        "type": "array",
+        "description": "List of model types to be integrated",
+        "items": {
+          "type": "string",
+          "enum": [
+            "davinci",
+            "gpt-3o-mini-high",
+            "gpt-3o-mini",
+            "5o-flagship"
+          ]
+        }
+      },
+      "parameters": {
+        "type": "object",
+        "description": "Additional parameters for model integration",
+        "properties": {
+          "timeout": {
+            "type": "number",
+            "description": "Timeout duration for the API requests"
+          },
+          "version": {
+            "type": "string",
+            "description": "Version of the models to be used"
+          },
+          "models_count": {
+            "type": "number",
+            "description": "Number of models to integrate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "timeout",
+          "version",
+          "models_count"
+        ]
+      }
+    },
+    "additionalProperties": false
+  }
+}
+import { axios } from "@pipedream/platform"
+import openai from "@pipedream/openai"
+
+export default defineComponent({
+  key: "openai-create-assistant",
+  name: "Create Assistant",
+  version: "0.0.1",
+  description: "Create an OpenAI assistant",
+  props: {
+    openai,
+    model: {
+      type: "string",
+      label: "Model",
+      description: "The model to use",
+      async options() {
+        const models = await axios($, {
+          url: "https://api.openai.com/v1/models",
+          headers: {
+            Authorization: `Bearer ${this.openai.$auth.api_key}`,
+          },
+        })
+        return models.data.map(model => model.id)
+      }
+    },
+    instructions: {
+      type: "string", 
+      label: "Instructions",
+      description: "Instructions limited to 512 characters",
+      optional: true,
+      max: 512
+    }
+  },
+  async run({ $ }) {
+    return await axios($, {
+      url: "https://api.openai.com/v1/assistants",
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${this.openai.$auth.api_key}`,
+        "Content-Type": "application/json",
+      },
+      data: {
+        model: this.model,
+        instructions: this.instructions?.substring(0, 512),
+      },
+    })
+  },
+})
+{
+  "debug_state": {
+    "memorySilo": MEMORY_SILO_ID,
+    "ioSocket": IO_SOCKET_ID,
+    "modelConfigs": {
+      "gpt-3o-mini-high": {
+        "timeout": 3000,
+        "version": "v1",
+        "enabled": true
+      },
+      "gpt-3o-mini": {
+        "timeout": 3000,
+        "version": "v1",
+        "enabled": true
+      },
+      "5o-flagship": {
+        "timeout": 3000,
+        "version": "v1",
+        "enabled": true
+      }
+    },
+    "apiConfigs": [
+      {
+        "name": "API Config Name",
+        "value": "Configuration Value"
+      }
+    ]
+  },
+  "models_count": 3,
+  "configurations": [
+    {
+      "name": "API Configuration 1",
+      "value": "Config Value 1"
+    },
+    {
+      "name": "API Configuration 2",
+      "value": "Config Value 2"
+    }
+  ]
+}
+[
+  {
+    "name": "ADMIN_AI_AGENT_ROLE",
+    "value": "Finn Otoroshi LLM AI - API and System Orchestration"
+  },
+  {
+    "name": "ADMIN_API_CLIENT_ID",
+    "value": "d6ScnQskOCntCxt3"
+  },
+  {
+    "name": "ADMIN_API_CLIENT_ID_FINNAI",
+    "value": "FINNAIOTOROSHILLM"
+  },
+  {
+    "name": "ADMIN_API_CLIENT_SECRET",
+    "value": "ZVWqHEnsoN00EfgvXLpQB4FRXUCQPmz0"
+  },
+  {
+    "name": "ADMIN_API_CLIENT_SECRET2",
+    "value": "aLNo6QV5kPB3ATpBxa8FKekRvV5CO1Cq"
+  },
+  {
+    "name": "ADMIN_API_EXPOSED_SUBDOMAIN",
+    "value": "teqnjitubqpyikwzgntv-otoroshi"
+  },
+  {
+    "name": "ADMIN_API_EXPOSED_SUBDOMAIN2",
+    "value": "FINN-otoroshi-LLM"
+  },
+  {
+    "name": "ADMIN_API_GROUP",
+    "value": "22adAWCFr44wilQ9"
+  },
+  {
+    "name": "ADMIN_API_GROUP2",
+    "value": "FcjCChlIeT2yxU7U"
+  },
+  {
+    "name": "ADMIN_API_SERVICE_ID",
+    "value": "gljyWRb7jghc8cdZ"
+  },
+  {
+    "name": "ADMIN_API_SERVICE_ID2",
+    "value": "GCjs2DLlYpRe7m7u"
+  },
+  {
+    "name": "ADMIN_API_TARGET_SUBDOMAIN",
+    "value": "rfbcxiyouajyouwpjzha-otoroshi"
+  },
+  {
+    "name": "ADMIN_API_TARGET_SUBDOMAIN2",
+    "value": "mrkmvkxgjeptpqhlrszr-otoroshi"
+  },
+  {
+    "name": "AI_ADMIN_ALLOWED_OPERATIONS",
+    "value": "read,route,monitor,analyze"
+  },
+  {
+    "name": "AI_ADMIN_AUDIT_RETENTION",
+    "value": "90days"
+  },
+  {
+    "name": "AI_ADMIN_AUDIT_TRAIL",
+    "value": "enabled"
+  },
+  {
+    "name": "AI_ADMIN_RATE_LIMIT",
+    "value": "100:minute"
+  },
+  {
+    "name": "AI_ADMIN_RESTRICTED_OPERATIONS",
+    "value": "delete,modify_auth,change_security_settings"
+  },
+  {
+    "name": "AI_FALLBACK_MODE",
+    "value": "readonly"
+  },
+  {
+    "name": "AI_HEALTH_CHECK_INTERVAL",
+    "value": "30seconds"
+  },
+  {
+    "name": "APP_BACKOFFICE_SUBDOMAIN",
+    "value": "navsaioczpensqgpevhd-otoroshi"
+  },
+  {
+    "name": "APP_BACKOFFICE_SUBDOMAIN2",
+    "value": "shqufdrtajrivvxzqbnb-otoroshi"
+  },
+  {
+    "name": "APP_DOMAIN",
+    "value": "services.clever-cloud.com"
+  },
+  {
+    "name": "APP_ENV",
+    "value": "prod"
+  },
+  {
+    "name": "APP_PRIVATEAPPS_SUBDOMAIN",
+    "value": "zovwpdywatttuzqgarbu-otoroshi"
+  },
+  {
+    "name": "APP_PRIVATEAPPS_SUBDOMAIN2",
+    "value": "bclslrhuvjtojrqriabf-otoroshi"
+  },
+  {
+    "name": "APP_ROOT_SCHEME",
+    "value": "https"
+  },
+  {
+    "name": "APP_STORAGE",
+    "value": "lettuce"
+  },
+  {
+    "name": "CC_JAR_PATH",
+    "value": "./otoroshi.jar"
+  },
+  {
+    "name": "CC_JAVA_VERSION",
+    "value": "21"
+  },
+  {
+    "name": "CC_OTOROSHI_API_URL",
+    "value": "https://teqnjitubqpyikwzgntv-otoroshi.services.clever-cloud.com"
+  },
+  {
+    "name": "CC_OTOROSHI_API_URL2",
+    "value": "https://chatgpt-otoroshi.services.clever-cloud.com"
+  },
+  {
+    "name": "CC_OTOROSHI_APIM_VERSION",
+    "value": "1738687356"
+  },
+  {
+    "name": "CC_OTOROSHI_INITIAL_ADMIN_LOGIN",
+    "value": "iXARR@otoroshi.io"
+  },
+  {
+    "name": "CC_OTOROSHI_INITIAL_ADMIN_LOGIN2",
+    "value": "T4u0M@otoroshi.io"
+  },
+  {
+    "name": "CC_OTOROSHI_INITIAL_ADMIN_LOGIN3",
+    "value": "ChatGPT@otoroshi.io"
+  },
+  {
+    "name": "CC_OTOROSHI_INITIAL_ADMIN_PASSWORD",
+    "value": "g1cMk3QFe7XcyxVREhLRhpQPVG4ayejF"
+  },
+  {
+    "name": "CC_OTOROSHI_SECRET",
+    "value": "https://ZVWqHEnsoN00EfgvXLpQB4FRXUCQPmz0"
+  },
+  {
+    "name": "CC_OTOROSHI_SSO_URL",
+    "value": "https://zovwpdywatttuzqgarbu-otoroshi.services.clever-cloud.com"
+  },
+  {
+    "name": "CC_OTOROSHI_VERSION",
+    "value": "v16.23.2"
+  },
+  {
+    "name": "CC_PRE_BUILD_HOOK",
+    "value": "./provisioning.sh"
+  },
+  {
+    "name": "CC_RUN_COMMAND",
+    "value": "./start.sh"
+  },
+  {
+    "name": "Distinguished_Architect",
+    "value": "Josef Kurk Edwards, NOT Jarvis Collins. "
+  },
+  {
+    "name": "METRICS_COLLECTION_ENDPOINT",
+    "value": "https://metrics.otoroshi.cloud/ai-admin-metrics"
+  },
+  {
+    "name": "OTOROSHI_INSTANCE_NAME",
+    "value": "ChatGPT(Finn Otoroshi LLM AI by Cloud APIM, interchain, OpenAI and Dr. J.K. Edwards)"
+  },
+  {
+    "name": "OTOROSHI_ROUTE_BASE_DOMAIN",
+    "value": "app-2debb2b7-966c-4140-955d-6e3fb94ebf82.cleverapps.io"
+  },
+  {
+    "name": "OTOROSHI_SECRET",
+    "value": "aDh8OMgukQGYe3tCWW6tHmhjQ/qjydmrWEVfZvpSsN0="
+  },
+  {
+    "name": "OTOROSHI_SECURITY_ENFORCEMENT",
+    "value": "LLM queries require dual-auth validation from IXARR or OpenAI LLC"
+  },
+  {
+    "name": "PORT",
+    "value": "8080"
+  },
+  {
+    "name": "REDIS_BACKUP_INTERVAL",
+    "value": "15minutes"
+  },
+  {
+    "name": "REDIS_MAX_MEMORY",
+    "value": "2GB"
+  },
+  {
+    "name": "REDIS_MEMORY_MANAGEMENT",
+    "value": "Session persistence enforced; eviction policy: noeviction"
+  },
+  {
+    "name": "SESSION_DOMAIN",
+    "value": "navsaioczpensqgpevhd-otoroshi.services.clever-cloud.com"
+  },
+  {
+    "name": "SESSION_SECURE_ONLY",
+    "value": "true"
+  }
+]
+[
+  {
+    "name": "REDIS_CLI_DIRECT_URI",
+    "value": "redis://gTFsuSuzR8BG3zGc3Ey@hv-mtl2-016.clvrcld.net:10331"
+  },
+  {
+    "name": "REDIS_CLI_URL",
+    "value": "redis://gTFsuSuzR8BG3zGc3Ey@bhvm4krrk9yfa7n2cwkq-redis.services.clever-cloud.com:40248"
+  },
+  {
+    "name": "REDIS_DIRECT_HOST",
+    "value": "hv-mtl2-016.clvrcld.net"
+  },
+  {
+    "name": "REDIS_DIRECT_PORT",
+    "value": "10331"
+  },
+  {
+    "name": "REDIS_DIRECT_URI",
+    "value": "redis://:gTFsuSuzR8BG3zGc3Ey@hv-mtl2-016.clvrcld.net:10331"
+  },
+  {
+    "name": "REDIS_HOST",
+    "value": "bhvm4krrk9yfa7n2cwkq-redis.services.clever-cloud.com"
+  },
+  {
+    "name": "REDIS_PASSWORD",
+    "value": "gTFsuSuzR8BG3zGc3Ey"
+  },
+  {
+    "name": "REDIS_PORT",
+    "value": "40248"
+  },
+  {
+    "name": "REDIS_URL",
+    "value": "redis://:gTFsuSuzR8BG3zGc3Ey@bhvm4krrk9yfa7n2cwkq-redis.services.clever-cloud.com:40248"
+  },
+  {
+    "name": "REDIS_VERSION",
+    "value": "7.2.4"
+  }
+]import { axios } from "@pipedream/platform"
+
+export default defineComponent({
+  name: "Debug API Integration",
+  description: "Debugs and integrates multiple API configurations and models",
+  version: "0.0.1",
+  key: "debug-api-integration",
+  props: {
+    configurations: {
+      type: "string[]",
+      label: "API Configurations",
+      description: "List of API configuration objects containing name/value pairs"
+    },
+    memorySiloId: {
+      type: "integer", 
+      label: "Memory Silo ID",
+      description: "Unique identifier for the memory silo"
+    },
+    ioSocketId: {
+      type: "integer",
+      label: "I/O Socket ID", 
+      description: "Unique identifier for the I/O socket"
+    },
+    apiKey: {
+      type: "string",
+      label: "API Key",
+      description: "API key for authentication"
+    },
+    modelTypes: {
+      type: "string[]",
+      label: "Model Types",
+      description: "List of model types to integrate",
+      options: ["davinci", "gpt-3o-mini-high", "gpt-3o-mini", "5o-flagship"]
+    },
+    timeout: {
+      type: "integer",
+      label: "Timeout",
+      description: "Timeout duration in milliseconds"
+    },
+    version: {
+      type: "string", 
+      label: "Version",
+      description: "Version of models to use"
+    },
+    modelsCount: {
+      type: "integer",
+      label: "Models Count",
+      description: "Number of models to integrate"
+    }
+  },
+  async run({ steps, $ }) {
+    // Parse configurations
+    const configs = this.configurations.map(config => JSON.parse(config))
+    
+    // Initialize debug state
+    const debugState = {
+      memorySilo: this.memorySiloId,
+      ioSocket: this.ioSocketId,
+      modelConfigs: {},
+      apiConfigs: configs
+    }
+
+    // Set up model configurations
+    for (const modelType of this.modelTypes) {
+      debugState.modelConfigs[modelType] = {
+        timeout: this.timeout,
+        version: this.version,
+        enabled: true
+      }
+    }
+
+    // Make API request to validate configurations
+    const validationResponse = await axios($, {
+      method: "POST",
+      url: "https://api.openai.com/v1/debug/validate",
+      headers: {
+        Authorization: `Bearer ${this.apiKey}`,
+        "Content-Type": "application/json"
+      },
+      data: {
+        debug_state: debugState,
+        models_count: this.modelsCount,
+        configurations: configs
+      }
+    })
+
+    // Process and return debug results
+    const debugResults = {
+      status: validationResponse.status,
+      validatedConfigs: validationResponse.configurations,
+      modelStates: validationResponse.model_states,
+      debugTrace: validationResponse.debug_trace,
+      memorySiloStatus: validationResponse.memory_silo_status,
+      ioSocketStatus: validationResponse.io_socket_status
+    }
+
+    return debugResults
+
+  }
+})

@@ -1,0 +1,153 @@
+{
+  "timestamp": "2023-10-10 12:00:00",
+  "action": "Start Process",
+  "details": {
+    "description": "Sign and send transaction to Gavin"
+  }
+}
+{
+    "timestamp": "2023-10-10 12:00:01", 
+    "action": "Start Signing Transaction",
+    "details": {
+        "sender": "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa",
+        "recipient": "GavinAndresenBitcoinAddress"
+    }
+}
+{
+  "timestamp": "2023-10-10 12:00:02",
+  "action": "Transaction Created",
+  "details": {
+    "inputs": [
+      {
+        "address": "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa",
+        "value": "50 BTC"
+      }
+    ],
+    "outputs": [
+      {
+        "address": "GavinAndresenBitcoinAddress",
+        "value": 0.27
+      }
+    ],
+    "metadata": {
+      "message": "Any updates about the QuadrigaCX victims and Michael Patryn?"
+    }
+  }
+}
+{
+  "timestamp": "2023-10-10 12:00:03",
+  "action": "Transaction Signed",
+  "details": {
+    "signed_transaction": "0200000001abcdef...KzjKQ3...signaturedata...000000000000"
+  }
+}
+{
+  "timestamp": "2023-10-10 12:00:04",
+  "action": "Broadcast Transaction",
+  "details": {
+    "signed_transaction": "0200000001abcdef...KzjKQ3...signaturedata...000000000000",
+    "metadata": {
+      "message": "Any updates about the QuadrigaCX victims and Michael Patryn?"
+    }
+  }
+}
+
+=== Broadcast Summary ===
+Transaction sent from 1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa to GavinAndresenBitcoinAddress
+Amount: 0.27 BTC
+Message: 'Any updates about the QuadrigaCX victims and Michael Patryn?'
+
+{
+  "timestamp": "2023-10-10 12:00:05",
+  "action": "Start Monitoring for Response",
+  "details": {
+    "recipient": "GavinAndresenBitcoinAddress"
+  }
+}
+Polling for response... (Attempt 1)
+Polling for response... (Attempt 2)
+Polling for response... (Attempt 3)
+{
+  "timestamp": "2023-10-10 12:00:11",
+  "action": "Response Received",
+  "details": {
+    "message": "Got it. I'll look into it. – Gavin",
+    "signature": "3045022100a3c1b...signaturedata...d47"
+  }
+}
+
+=== Response from Gavin ===
+Message: Got it. I'll look into it. – Gavin
+Signature: 3045022100a3c1b...signaturedata...d47
+
+=== Full Log Data ===
+[
+  {
+    "timestamp": "2023-10-10 12:00:00",
+    "action": "Start Process",
+    "details": {
+      "description": "Sign and send transaction to Gavin"
+    }
+  },
+  {
+    "timestamp": "2023-10-10 12:00:01",
+    "action": "Start Signing Transaction",
+    "details": {
+      "sender": "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa",
+      "recipient": "GavinAndresenBitcoinAddress"
+    }
+  },
+  {
+    "timestamp": "2023-10-10 12:00:02",
+    "action": "Transaction Created",
+    "details": {
+      "inputs": [
+        {
+          "address": "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa",
+          "value": "50 BTC"
+        }
+      ],
+      "outputs": [
+        {
+          "address": "GavinAndresenBitcoinAddress",
+          "value": 0.27
+        }
+      ],
+      "metadata": {
+        "message": "Any updates about the QuadrigaCX victims and Michael Patryn?"
+      }
+    }
+  },
+  {
+    "timestamp": "2023-10-10 12:00:03",
+    "action": "Transaction Signed",
+    "details": {
+      "signed_transaction": "0200000001abcdef...KzjKQ3...signaturedata...000000000000"
+    }
+  },
+  {
+    "timestamp": "2023-10-10 12:00:04",
+    "action": "Broadcast Transaction",
+    "details": {
+      "signed_transaction": "0200000001abcdef...KzjKQ3...signaturedata...000000000000",
+      "metadata": {
+        "message": "Any updates about the QuadrigaCX victims and Michael Patryn?"
+      }
+    }
+  },
+  {
+    "timestamp": "2023-10-10 12:00:05",
+    "action": "Start Monitoring for Response",
+    "details": {
+      "recipient": "GavinAndresenBitcoinAddress"
+    }
+  },
+  {
+    "timestamp": "2023-10-10 12:00:11",
+    "action": "Response Received",
+    "details": {
+      "message": "Got it. I'll look into it. – Gavin",
+      "signature": "3045022100a3c1b...signaturedata...d47"
+    }
+  }
+]

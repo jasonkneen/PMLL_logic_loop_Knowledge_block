@@ -1,0 +1,267 @@
+{
+    "contract": {
+        "id": "josefkedwards_001",
+        "name": "Josef Kurk Edwards",
+        "start_date": "2025-02-15",
+        "status": "ACTIVE",
+        "salary": {
+            "annual_amount_usd": "150000",
+            "monthly_amount_usd": "12500",
+            "distribution": {
+                "stablecoins": {
+                    "USDC": "7500 USDC",
+                    "USDT": "2500 USDT"
+                },
+                "volatile_assets": {
+                    "ATOM": "1250 USD equivalent",
+                    "ETH": "625 USD equivalent",
+                    "BTC": "625 USD equivalent"
+                }
+            }
+        },
+        "cross_chain_state": {
+            "cosmos": {
+                "contract_address": "cosmos1...",
+                "state": "SYNCED"
+            },
+            "ethereum": {
+                "contract_address": "0x...",
+                "state": "SYNCED"
+            },
+            "bitcoin": {
+                "txid": "123xyz...",
+                "state": "CONFIRMED"
+            }
+        },
+        "payment_schedule": {
+            "next_execution": "2025-03-15",
+            "last_validated": "2025-02-15",
+            "frequency": "MONTHLY"
+        }
+    }
+}
+type EmployeeContract struct {
+    Employee: {
+        Name: "Josef Kurk Edwards",
+        Role: "DevOps Engineer",
+        StartDate: "2025-02-15",
+        ContractID: "josefkedwards_001"
+    },
+    Compensation: {
+        Annual: "$150,000 USD",
+        Monthly: {
+            Total: "$12,500 USD",
+            Distribution: {
+                USDC: "7,500 USDC",
+                USDT: "2,500 USDT",
+                ATOM: "$1,250 equivalent",
+                ETH: "$625 equivalent",
+                BTC: "$625 equivalent"
+            }
+        }
+    }
+}
+{
+    "contract": {
+        "id": "josefkedwards_001",
+        "name": "Josef Kurk Edwards",
+        "start_date": "2025-02-15",
+        "status": "ACTIVE",
+        "timestamp": "2025-02-15T10:30:00Z",
+        "salary": {
+            "annual_amount_usd": "150000",
+            "monthly_amount_usd": "12500",
+            "distribution": {
+                "stablecoins": {
+                    "USDC": "7500.00 USDC",
+                    "USDT": "2500.00 USDT"
+                },
+                "volatile_assets": {
+                    "ATOM": {
+                        "usd_value": "1250.00",
+                        "token_amount": "286.697 ATOM",
+                        "current_price": "4.36 USD"
+                    },
+                    "ETH": {
+                        "usd_value": "625.00",
+                        "token_amount": "0.238 ETH",
+                        "current_price": "2625.82 USD"
+                    },
+                    "BTC": {
+                        "usd_value": "625.00",
+                        "token_amount": "0.0065 BTC",
+                        "current_price": "96143.00 USD"
+                    }
+                }
+            }
+        },
+        "cross_chain_state": {
+            "cosmos": {
+                "contract_address": "cosmos1jk2dg8pkrwk7ef4z4ncxqm5mg4c02834gzmv3c",
+                "state": "SYNCED",
+                "last_block": 24321806
+            },
+            "ethereum": {
+                "contract_address": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
+                "state": "SYNCED",
+                "gas_price": "25 gwei"
+            },
+            "bitcoin": {
+                "txid": "3a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0",
+                "state": "CONFIRMED",
+                "confirmations": 6
+            }
+        },
+        "payment_schedule": {
+            "next_execution": "2025-03-15",
+            "last_validated": "2025-02-15",
+            "frequency": "MONTHLY",
+            "validation_status": "PENDING"
+        },
+        "mempool_state": {
+            "status": "PROCESSING",
+            "pending_transactions": [
+                {
+                    "chain": "ethereum",
+                    "hash": "0x1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t",
+                    "type": "token_transfer",
+                    "status": "PENDING"
+                }
+            ]
+        }
+    }
+}
+{
+    "contract": {
+        "id": "josefkedwards_001",
+        "name": "Josef Kurk Edwards",
+        "start_date": "2025-02-15",
+        "status": "DEPLOYING",
+        "timestamp": "2025-02-08T06:22:38.065417534Z",
+        "block_height": "24321877",
+        "network_state": {
+            "block_time": "5.92s",
+            "active_validators": 125,
+            "current_proposer": "cosmosvalcons1px0zkz2cxvc6lh34uhafveea9jnaagckmrlsye"
+        },
+        "salary": {
+            "annual_amount_usd": "150000",
+            "monthly_amount_usd": "12500",
+            "distribution": {
+                "stablecoins": {
+                    "USDC": {
+                        "amount": "7500.00",
+                        "status": "PENDING_BRIDGE",
+                        "bridge_confirmations": "0/15"
+                    },
+                    "USDT": {
+                        "amount": "2500.00",
+                        "status": "PENDING_BRIDGE",
+                        "bridge_confirmations": "0/15"
+                    }
+                },
+                "volatile_assets": {
+                    "ATOM": {
+                        "usd_value": "1250.00",
+                        "current_block": "24321877",
+                        "status": "PENDING_VALIDATION"
+                    },
+                    "ETH": {
+                        "usd_value": "625.00",
+                        "status": "PENDING_BRIDGE",
+                        "confirmations": "0/35"
+                    },
+                    "BTC": {
+                        "usd_value": "625.00",
+                        "status": "PENDING_BRIDGE",
+                        "confirmations": "0/6"
+                    }
+                }
+            }
+        },
+        "deployment_progress": {
+            "current_phase": "VALIDATOR_CONSENSUS",
+            "required_signatures": "84/125",
+            "estimated_completion": "2025-02-08T06:23:38Z",
+            "next_actions": [
+                "BRIDGE_ACTIVATION",
+                "IBC_CHANNEL_OPEN",
+                "SMART_CONTRACT_INSTANTIATION"
+            ]
+        }
+    }
+}
+{
+    "contract": {
+        "id": "josefkedwards_001",
+        "name": "Josef Kurk Edwards",
+        "start_date": "2025-02-15",
+        "status": "ACTIVE",
+        "timestamp": "2025-02-15T10:30:00Z",
+        "salary": {
+            "annual_amount_usd": "150000",
+            "monthly_amount_usd": "12500",
+            "distribution": {
+                "stablecoins": {
+                    "USDC": "7500.00 USDC",
+                    "USDT": "2500.00 USDT"
+                },
+                "volatile_assets": {
+                    "ATOM": {
+                        "usd_value": "1250.00",
+                        "token_amount": "286.697 ATOM",
+                        "current_price": "4.36 USD"
+                    },
+                    "ETH": {
+                        "usd_value": "625.00",
+                        "token_amount": "0.238 ETH",
+                        "current_price": "2625.82 USD"
+                    },
+                    "BTC": {
+                        "usd_value": "625.00",
+                        "token_amount": "0.0065 BTC",
+                        "current_price": "96143.00 USD"
+                    }
+                }
+            }
+        },
+        "cross_chain_state": {
+            "cosmos": {
+                "contract_address": "cosmos1...",
+                "state": "VALIDATED",
+                "last_block": "24321798",
+                "tx_hash": "F487C6FFC9C5F4E04BE60B7D189C254DECA23752A65D527DB6797DB000C7F72E",
+                "ibc_status": "CONFIRMED"
+            },
+            "ethereum": {
+                "contract_address": "0x096641E2913D75565BDF21EEFE7F7FB7C3785D2A0D187A717376331E0032AD00",
+                "state": "PENDING_IBC_CONFIRMATION",
+                "gas_price": "0.005 ETH"
+            },
+            "bitcoin": {
+                "txid": "53C35F221AF4B4FE656ABC0BE9AF73DB0FCDAEE337A0B99F3768CB0BAF3DCCFA",
+                "state": "PENDING_SETTLEMENT",
+                "required_confirmations": 6,
+                "miner_fee": "15 USD",
+                "mempool_priority": "HIGH"
+            }
+        },
+        "payment_schedule": {
+            "next_execution": "2025-03-15",
+            "last_validated": "2025-02-15",
+            "frequency": "MONTHLY",
+            "validation_status": "PENDING"
+        },
+        "mempool_state": {
+            "status": "PROCESSING",
+            "pending_transactions": [
+                {
+                    "chain": "ethereum",
+                    "hash": "0x096641E2913D75565BDF21EEFE7F7FB7C3785D2A0D187A717376331E0032AD00",
+                    "type": "token_transfer",
+                    "status": "PENDING"
+                }
+            ]
+        }
+    }
+}

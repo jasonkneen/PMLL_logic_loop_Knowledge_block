@@ -1,0 +1,40 @@
+{
+  "deployment": {
+    "version": "5.0.0",
+    "name": "GPT-5o-Flagship",
+    "batch_processing": {
+      "completion_window": "24h",
+      "max_batch_size": 50000,
+      "file_size_limit": "200MB",
+      "input_format": "jsonl",
+      "output_format": "jsonl"
+    },
+    "memory_management": {
+      "silo_config": {
+        "id": "${MEMORY_SILO_ID}",
+        "redis": {
+          "url": "${REDIS_URL}",
+          "max_memory": "2GB",
+          "eviction_policy": "noeviction",
+          "backup_interval": "15minutes"
+        }
+      },
+      "persistence": {
+        "enabled": true,
+        "storage_type": "lettuce",
+        "session_domain": "${SESSION_DOMAIN}"
+      }
+    },
+    "api_config": {
+      "base_url": "${CC_OTOROSHI_API_URL}",
+      "credentials": {
+        "client_id": "${ADMIN_API_CLIENT_ID}",
+        "client_secret": "${ADMIN_API_CLIENT_SECRET}"
+      },
+      "security": {
+        "dual_auth": true,
+        "validators": ["IXARR", "OpenAI LLC"]
+      }
+    }
+  }
+}

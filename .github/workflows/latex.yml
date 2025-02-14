@@ -1,0 +1,23 @@
+name: Build LaTeX PDF
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install LaTeX Packages
+        run: sudo apt-get install texlive-latex-base texlive-fonts-recommended texlive-latex-extra texlive-xetex texlive-bibtex-extra
+
+      - name: Compile LaTeX Document
+        run: pdflatex -interaction=nonstopmode -output-directory=. main.tex
+
+      - name: Upload PDF
+        uses: actions/upload-artifact@v3
+        with:
+          name: PMLL_Logic_Loop_Paper
+          path: main.pdf
